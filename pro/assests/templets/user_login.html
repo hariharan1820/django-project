@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>user login</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+                display: flex;
+                justify-content: center;
+                padding-top: 30px;
+                color: black;
+                background: url(https://img.freepik.com/premium-photo/blurred-bookshelf-many-old-books-book-shop-library_36051-477.jpg?w=900) no-repeat;
+                background-size:cover;
+
+            }
+            input{
+                padding: 10px;
+                width: 200px;
+                border-radius: 5px;
+
+            }
+            label {
+                width:100px;
+                display:inline-block;
+            }
+            button {
+                width: 100px;
+                height: 40px;
+                position: relative;
+                border: none;
+                border-radius: 5px;
+                margin-left: 60px;
+                display: inline-block;
+                border-radius:40px;
+                cursor:pointer;
+
+
+            }
+            .loginbox button:hover{
+                background-color: rgba(78, 49, 49, 0.623);
+            }
+            .loginbox{
+                position: absolute;
+                left:500px;
+                top:150px;
+                padding:40px;
+                border: 0.5px solid rgb(245, 238, 221);
+                box-shadow: 10px 10px 10px rgba(82, 63, 36, 0.6);
+                border-radius: 10px;
+                background: transparent;
+                backdrop-filter: blur(20px);
+
+
+            }
+            .title{
+            text-align:center;
+            color:white;
+            }
+            .loginbox input{
+
+                border: none;
+                outline: none;
+                border-radius: 40px;
+            }
+            .loginbox i {
+                position: absolute;
+                right: 50px;
+
+                transform: translateY(50%);
+
+            }
+            .loginbox p,a {
+                text-decoration: none;
+                font-weight: 600;
+                text-align: center;
+                color: beige;
+
+            }
+
+    </style>
+    <script type="text/javascript">
+        function myFunction() {
+        var x document.getElementById("password");
+        if (x.type === "password")
+        {
+        x.type "text";
+        document.getElementById('lock').style.display "inline-block";
+        document.getElementById('unlock').style.display "none";
+        }
+        else
+        {
+        x.type = "password";
+        document.getElementById('lock').style.display "none";
+        document.getElementById('unlock').style.display "none";
+        }
+    </script>
+
+</head>
+<body>
+<div class="loginbox">
+    <div class="title">
+        <h1> Login </h1>
+    </div>
+    <form method="post" name="userlogin">
+            {% csrf_token %}
+
+            <input type="text" placeholder="User name / Mail id" name="User_id"  id="myInput">
+            <i class='bx bxs-user'></i><br><br>
+
+            <input type="password" placeholder="Password" name="userpws" id="password" >
+            <i class='bx bxs-lock-alt' id="lock" onclick="myFunction()"></i>
+<!--            <i class='bx bxs-lock-open-alt' id="unlock" onclick="myFunction()"></i>--><br><br>
+            <button type="submit">Login</button><br><br>
+            <p>New user?<a href="{% url 'Newuser' %}">Register</a>
+            </p>
+
+    </form>
+</div>
+
+</body>
+</html>

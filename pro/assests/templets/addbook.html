@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>book entry</title>
+        {% load static %}
+        <style>
+        *{
+        text-decoration:none;
+        }
+
+            body{
+                background-image: url("{% static 'static/libbackground.jpg'% }");
+                background-repeat: no-repeat;
+                background-size:cover;
+                display: flex;
+                justify-content: center;
+                padding-top: 30px;
+                color: black;
+            }
+            input{
+                padding: 10px;
+                width: 200px;
+                border-radius: 5px;
+
+            }
+            label{
+                width:100px;
+                display:inline-block;
+            }
+            button{
+                width: 70px;
+                height: 40px;
+                position: relative;
+                left:50px;
+                border-radius: 5px;
+                margin-left: 20px;
+                cursor:pointer;
+            }
+
+
+        </style>
+</head>
+<body>
+<form method="post" name="bookdata">
+        {% csrf_token %}
+
+        <label for="Name" > Book Name</label>
+        <input type="text" placeholder="Enter the book name" name="Name" ><br><br>
+        <label for="Code" > Book Code </label>
+        <input type="text" placeholder="Enter the book cod" name="Code" ><br><br>
+        <label for="Author_name"> Author Name </label>
+        <input type="text" placeholder="Enter Author Name " name="Author" ><br><br>
+        <label for="Status"> Status</label>
+        <input type="text" placeholder="Enter status " name="Status" ><br><br>
+        <label for="Amount">Amount</label>
+        <input type="number" placeholder="Enter Amount" name="Amount"><br><br>
+        <label for="crdate">Created Date </label>
+        <input type="date" placeholder="Enter created date" name="Created"><br><br>
+        <label for="update">Updated Date </label>
+        <input type="date" placeholder="Enter updated date" name="Updated"><br><br>
+
+        <button type="submit" >SUBMIT</button>
+        <button type="reset">RESET</button>
+        <button ><a href="{% url 'bookdetails' %}">Back</a> </button>
+
+</form><br><br>
+
+
+</body>
+</html>
